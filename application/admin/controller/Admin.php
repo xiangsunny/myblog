@@ -63,7 +63,7 @@ class Admin extends Base
              else 
                  return $this->error('更新失败','adminlist');
      }  
-     public function logout()
+     public function logout()   //注销操作
      {
         session(null);      //清除session
         return $this->success('退出成功','login/login');
