@@ -1,0 +1,19 @@
+{include file="common/header"/}
+ <div class="container-fluid">
+    <div class="row">
+    {include file="common/left"/}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <form class="form-signin" action="{:url('admin/modify')}" method="post">
+        <h2 class="form-signin-heading">请修改操作人员</h2>
+        <label for="inputEmail" >管理员名称</label>
+        <input type="text" id="inputEmail" name="admin"  class="form-control" value="{$myadmin.admin}" required autofocus>
+        <label for="inputPassword" >管理员密码</label>
+        <input type="password" id="inputPassword" name="password"  class="form-control" placeholder="" required>
+        <input type="hidden" value="{$myadmin.id}" name="id">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
+      </form>
+    </div> <!-- /container -->
+    </div>
+    </div>
+  </body>
+</html>

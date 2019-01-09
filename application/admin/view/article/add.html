@@ -1,0 +1,23 @@
+{include file="common/header"/}
+<div class="container-fluid">
+    <div class="row">
+    {include file="common/left"/}
+    <div class="col-sm-9 col-sm-offset-3 col-md-5 col-md-offset-2 main" >
+      <form class="form-signin" action="{:url('article/add')}" method="post" enctype="multipart/form-data">
+        <h3 class="form-signin-heading">请添加文章</h2>
+        
+        <label  >文章名称</label>
+        <input type="text"  name="title" class="form-control"  required autofocus style="width:500px">
+        <label  >类型</label>
+        <input type="text"  name="cate" class="form-control"  required autofocus style="width:200px">
+        <label >文章内容</label>
+        <textarea rows="5" name='content' class='form-control' style="width:500px"></textarea>
+               选择文件<input type="file" class="file" name="file">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">添加</button>
+        
+      </form>
+    </div> <!-- /container -->
+    </div>
+</div>
+  </body>
+</html>
