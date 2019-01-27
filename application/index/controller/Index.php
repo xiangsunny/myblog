@@ -7,9 +7,17 @@ class Index	extends Controller
 {
     public function index()
     {
-//         return '主页';
-        $articles = MyArticle::paginate(10);
+        $q = input('q');
+        if($q)    
+        {
+            $articles = MyArticle::where('cate',$q)->paginate(10);  
+//             return $articles->content;
+        }
+        else
+            $articles = MyArticle::paginate(10);
+        
         $this->assign('articles',$articles);
-		return $this->fetch();
+        return $this->fetch();
     }
+    
 }

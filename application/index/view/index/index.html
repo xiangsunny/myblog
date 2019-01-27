@@ -6,7 +6,7 @@
         {volist name="articles" id="article"}
           <div class="blog-post">
           	<br/>
-            <h2 class="blog-post-title"><a href="#" >{$article.title}</a></h2>
+            <h2 class="blog-post-title"><a href="{:url('comment/commentlist')}?articleid={$article.id}" >{$article.title}</a></h2>
             <p class="blog-post-meta">{$article.create_time} <a href="#">{$article.admin}</a></p>
             <p>{$article.content}</p>
           </div><!-- /.blog-post -->

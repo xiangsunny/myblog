@@ -22,11 +22,23 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
+          <div style="float:left">
           <a class="blog-nav-item active" href="{:url('index/index')}">首页</a>
-          <a class="blog-nav-item" href="#">New features</a>
-          <a class="blog-nav-item" href="#">Press</a>
-          <a class="blog-nav-item" href="#">New hires</a>
-          <a class="blog-nav-item" href="#">About</a>
+          <a class="blog-nav-item" href="{:url('index/index')}?q=php">php</a>
+          <a class="blog-nav-item" href="{:url('index/index')}?q=python">python</a>
+          <a class="blog-nav-item" href="{:url('index/index')}?q=html">html/css</a>
+          <a class="blog-nav-item" href="{:url('index/index')}?q=javascript">javascript</a>
+          <a class="blog-nav-item" href="{:url('index/index')}?q=mysql">mysql</a>
+          </div>
+          <div style="float:right;">
+          {if condition="$Request.session.name neq ''"}  
+          	<a class="blog-nav-item" href="#" style="text-align:right;">{$Request.session.name}</a>
+          	<a class="blog-nav-item" href="{:url('User/logout')}" style="text-align:right">注销</a>
+          {else/}
+          <a class="blog-nav-item" href="{:url('User/regist')}" style="text-align:right;">注册</a>
+          <a class="blog-nav-item" href="{:url('User/login')}" style="text-align:right">登录</a>
+          {/if}
+          </div>
         </nav>
       </div>
     </div>

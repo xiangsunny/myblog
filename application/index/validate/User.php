@@ -1,15 +1,11 @@
 <?php
 namespace app\index\validate;
-
 use think\Validate;
 
-//验证器,除非用了require开头，否则其他验证都是可选的
 class User extends Validate
 {
     protected $rule = [
-        'nickname'  =>  ['require','min'=>5,'token'],
-        'email'     =>  ['require','email'],
-        'birthday'  =>  ['dateFormat'=>'Y-m-d'],
+        'username|用户名' => 'require|min:5|unique:user,username',  //unique的用法：“unique：表名，字段名”，这样设置就规定了哪个字段不能重复
+        'password|密码' => 'require',
     ];
-    
 }
