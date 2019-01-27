@@ -4,10 +4,14 @@ use think\Model;
 
 class Comment extends Model
 {
-    protected $autoWriteTimestamp = 'datetime';
+    protected $autoWriteTimestamp = 'timestamp';
     
 //     public function admin()
 //     {
 //         return $this->belongsTo('admin');
+//     }
+//     public function user()
+//     {
+//         return $this->belongsTo('User');
 //     }
 }

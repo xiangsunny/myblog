@@ -9,7 +9,8 @@ class Article extends Model
 //     protected $table = "blog_article";
     public function comments()
     {
-        return $this->hasMany('Comment');    
+       return $this->hasMany('Comment');
+//         return $this->morphMany('Comment');
     }
     
     
