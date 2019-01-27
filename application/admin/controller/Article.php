@@ -12,7 +12,7 @@ class Article extends Base
     {
         if(request()->isPost())
         {
-            $article = model('Article');    //助手函数创建模型
+//             $article = model('Article');    //助手函数创建模型
             $admin = Admin::get(Session::get('id'));
 //             $article->title = input('title');
 //             $article->content = input('content');
@@ -32,7 +32,7 @@ class Article extends Base
                 'admin'     => $admin->admin,
                 'attachment' => $savename,
                 'cate'      => input('cate')
-            ]);  //
+            ]);  
             return redirect(url('articlelist'));
         }
         else             
@@ -44,16 +44,16 @@ class Article extends Base
         $this->assign('articles',$articles);
         return $this->fetch('articlelist');
     }
-    public function comment()   //文章评论
-    {
+//     public function comment()   //文章评论
+//     {
         
-        $comment = model('Comment');    //助手函数创建模型
-        $article = MyArticle::get(1);
-        $comment->content = '一对多测试';
-//         $admin->comments()->save($comment);
-        $article->comments()->save(['content'=>'test']);
-        return '测试成功!';
-    }
+//         $comment = model('Comment');    //助手函数创建模型
+//         $article = MyArticle::get(1);
+//         $comment->content = '一对多测试';
+// //         $admin->comments()->save($comment);
+//         $article->comments()->save(['content'=>'test']);
+//         return '测试成功!';
+//     }
     public function delete()    //文章删除
     {
         $article_id = input('id');
