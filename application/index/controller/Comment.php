@@ -1,13 +1,25 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
-use think\Db;
+use app\index\controller\Base;
 use app\admin\model\Article as MyArticle;
 use think\Session;
 use app\admin\model\Comment as MyComment;
+use app\admin\model\Datecate as MyDatecate;
 
 class Comment extends Controller
 {
+    public function index()
+    {
+        $article_id = input('articleid');
+        $article = MyArticle::get($article_id);
+        $comments = $article->comments;     //得到article对应的全部评论，格式是Comment实例
+        $this->assign('comments',$comments);
+        $datecates = MyDatecate::all();
+        $this->assign('article',$article);
+        $this->assign('datecates',$datecates);
+        return $this->fetch('comment');
+    }
     //评论列表
     public function commentlist()
     {
@@ -19,6 +31,8 @@ class Comment extends Controller
 //         $comments = Db::table('blog_comment')->where('article_id',$article_id)->order('create_time')->select(); //通过这种方式得到数组
         $comments = $article->comments;     //得到article对应的全部评论，格式是Comment实例
         $this->assign('comments',$comments);
+        $datecates = MyDatecate::all();
+        $this->assign('datecates',$datecates);
         return $this->fetch('comment');
     }
     
@@ -49,8 +63,7 @@ class Comment extends Controller
 //                 $comments = Db::table('blog_comment')->where('article_id',$article_id)->order('create_time')->select();  //这个方法查询得到的是数组
                 $comments = $article->comments;     //得到article下所有的comments
                 $this->assign('comments',$comments);
-                return $this->fetch('comment/comment');
-
+                return redirect('index',array('articleid'=>$article_id));
             }
             else 
                 return "数据写入失败";

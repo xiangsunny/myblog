@@ -92,4 +92,23 @@ class Article extends Base
         $datecate->where('id',$datecate->id)->update(['num'=>$num]);  //更新月份的文章数量
         return redirect(url('articlelist'));
     }
+    
+    public function modify()    //文章修改
+    {
+        $article_id = input('id');
+        if(request()->isPost())
+        {
+            $title = input('title');
+            $content = input('content');
+            MyArticle::where('id',$article_id)->update(['title'=>$title,'content'=>$content]);
+            return redirect('articlelist');
+        }
+        else{
+            $article = MyArticle::get($article_id);
+            $cates = MyCate::all();
+            $this->assign('article',$article);
+            $this->assign('cates',$cates);
+            return $this->fetch('modify');
+        }
+    }
 }

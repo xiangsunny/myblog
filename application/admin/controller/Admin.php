@@ -5,7 +5,7 @@ use app\admin\model\Admin as MyAdmin;
 use app\admin\controller\Base;
 class Admin extends Base
 {
-    public function adminlist()
+    public function index()
     {
         
         $myadmins = MyAdmin::paginate(3);
@@ -13,6 +13,13 @@ class Admin extends Base
         return $this->fetch('dashboard');
     }
     
+    public function adminlist()
+    {
+        
+        $myadmins = MyAdmin::paginate(3);
+        $this->assign('myadmins',$myadmins);
+        return $this->fetch('dashboard');
+    }
     public function add()
     {
         if(request()->isPost())     //添加管理员操作

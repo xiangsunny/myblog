@@ -1,0 +1,39 @@
+{include file="common/header"/}
+<div class="container">
+    <div class="row">
+    {include file="common/left"/}
+    <div class="col-sm-9 col-sm-offset-3 col-md-5 col-md-offset-2 main" >
+      <form class="form-signin" action="{:url('article/modify')}" method="post" enctype="multipart/form-data">
+        <h3 class="form-signin-heading">请添加文章</h2>
+        <div class=form-group>
+	        <label  >文章名称</label>
+	        <input type="text"  name="title" class="form-control" value='{$article.title}' required autofocus >
+        </div>
+        <div class=form-group>
+	        <label  >类型</label>
+	        <select name='cate' class="form-control">
+	        	{volist name='cates' id='cate'}
+	        		<option value='{$cate.cate}'>{$cate.cate}</option>
+	        	{/volist}
+	        	
+	        </select>
+        </div>
+        <input name='id' value={$article.id} class='hidden'>
+        <div class=form-group>
+	        <label >文章内容</label>
+	        <textarea rows="8"  name='content' class='' id='content' >{$article.content} </textarea>
+		</div>
+		
+		<div class=form-group>
+	               选择文件<input type="file" class="file" name="file">
+	        <button class="btn btn-lg btn-primary btn-block" type="submit">添加</button>
+      	</div>
+      </form>
+    </div> <!-- /container -->
+    </div>
+</div>
+<script type='text/javascript'>		//添加百度编辑器
+	UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:300,});
+</script>
+  </body>
+</html>
