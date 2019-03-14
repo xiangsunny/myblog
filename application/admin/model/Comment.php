@@ -6,12 +6,8 @@ class Comment extends Model
 {
     protected $autoWriteTimestamp = 'timestamp';
     
-//     public function admin()
-//     {
-//         return $this->belongsTo('admin');
-//     }
-//     public function user()
-//     {
-//         return $this->belongsTo('User');
-//     }
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 }
