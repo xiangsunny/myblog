@@ -1,0 +1,51 @@
+{include file="common/header"/}
+<div class="container-fluid">
+   <div class="row" >
+      <form class="form-horizontal" action="{:url('User/profile')}" enctype='multipart/form-data' method="post">
+      <div 	>
+        <h2 class="form-signin-heading">信息修改</h2>
+      </div>
+      
+      <div class='form-group'>
+        <label for="inputText" class='col-sm-2 control-label' >名称</label>
+		<div class='col-sm-4'>
+        	<input type="text" id="" name="user" class="form-control" placeholder="user name" required autofocus>
+        </div>
+      </div>
+      <div class='form-group'>
+        <label for="inputText" class='col-sm-2 control-label' >职业</label>
+		<div class='col-sm-4'>
+        	<input type="text" id="" name="job" class="form-control" placeholder="job" required >
+        </div>
+      </div>
+        
+      <div class='form-group'>
+        <label for="inputText" class='col-sm-2 control-label' >地址</label>
+		<div class='col-sm-4'>
+        	<input type="text" id="" name="address" class="form-control" placeholder="address" required >
+        </div>
+      </div>
+      <div class='form-group'>
+        <label for="inputText" class='col-sm-2 control-label' >年龄</label>
+		<div class='col-sm-4'>
+        	<input type="text" id="" name="age" class="form-control" placeholder="age" required >
+        </div>
+      </div >
+	  
+	  <div class='form-group'>
+        <label for="inputText" class='col-sm-2 control-label' >选择头像</label>
+		<div class='col-sm-1'>
+        	<input type="file" id="" name="pic" class="form-control"  required >
+        </div>
+      </div >
+
+	  <div class='form-group'>
+      	<div class='col-md-4 col-md-offset-2'>
+        	<button class="btn btn-primary btn-lg btn-block " type="submit">添加</button>
+	  	</div>
+	  </div>	  
+      </form>
+    </div> <!-- /container -->
+</div>
+
+{include file="common/footer"}

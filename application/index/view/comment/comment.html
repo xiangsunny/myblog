@@ -1,0 +1,54 @@
+{include file='common/header'}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+        	<h2>{$article->title}</h2>
+				{$article->content}
+			
+			<form class="" name=form1 action="{:url('addcomment')}" method="post">
+				请输入评论：
+				<br/>
+				<input class="" type="text" name="comment" required>
+				<input name="articleid" type="hidden" value = "{$article->id}">	
+				<button class="" onclick="javascript:{
+					this.disable=true;document.form1.submit();}">提交</button>
+			</form>
+			<div>
+				{volist name='comments' id='comment'}
+				<div style="border: 1px solid black;margin:1px">
+					<div class='' >
+						<div style="float:right">
+						{if condition="$Request.session.id eq $comment.user_id"}
+							<a href="{:url('comment/delete')}?comment_id={$comment.id}&article_id={$comment.article_id}">删除</a>
+						{/if}
+						</div>
+						<div style='float:left;border-left-width:20px;'>
+							<img src='__IMGE__{$comment.user.pic}' alt='暂无图像' class='img-circle' style='width:40px;height:40px'>
+						</div>
+						<div style='float:left;border-left-width:20px'>
+							{$comment.user.username}
+						</div>
+						<div style='float:right;border-right-width:20px'>
+							{$comment.create_time}
+						</div>
+						
+					</div>
+					<br/>
+					<div >
+					{$comment.content}
+					</div>
+				</div>
+				
+				{/volist}
+				
+			</div>
+        </div><!-- /.blog-main -->
+
+    {include file='common/right'}
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+ {include file='common/footer'}

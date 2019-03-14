@@ -1,0 +1,26 @@
+{include file='common/header'}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+	
+			<div>
+				{volist name='articles' id='article'}
+					<div class="blog-post">
+		          	<br/>
+		            <h2 class="blog-post-title"><a href="{:url('comment/commentlist')}?articleid={$article.id}" >{$article.title}</a></h2>
+		            <p class="blog-post-meta">{$article.create_time} <a href="#">{$article.admin}</a></p>
+		            <p>{$article.content}</p>
+		          </div><!-- /.blog-post -->
+				{/volist}
+			</div>
+
+        </div><!-- /.blog-main -->
+
+    {include file='common/right'}
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+ {include file='common/footer'}
