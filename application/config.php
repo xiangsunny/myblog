@@ -142,15 +142,11 @@ return [
         'taglib_end'   => '}',
         //布局模板相关设置
     
-//         'layout_on' =>  true,
-//         'layout_name'   =>  'layout',
-//         'layout_item'   =>  '[__REPLACE__]'
-        
     ],
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-//        '__css__'   =>  '/static/css',
+        '__IMGE__'   =>  '/uploads/',
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
@@ -181,6 +177,7 @@ return [
         'path'  => LOG_PATH,
         // 日志记录级别
         'level' => [],
+        'apart_level'=>['debug'],   //单独生成调试文件的日志
     ],
 
     // +----------------------------------------------------------------------

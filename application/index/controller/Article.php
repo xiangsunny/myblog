@@ -47,4 +47,5 @@ class Article extends Controller
             return $this->fetch('article');
         }
     }
+    
 }
