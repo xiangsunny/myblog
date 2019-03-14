@@ -2,23 +2,26 @@
           <div class="sidebar-module sidebar-module-inset">
             <h4>路漫漫其修远兮</h4>
             <h4>吾将上下而求索</h4>
-            <p></p>
+  			<p></p> 
+  			
+  			<form name='form1' action='{:url('search/search')}'  method='post'>         
+    		  <div class="input-group">
+		      	  <input type="text" name='keyword' class="form-control" placeholder="关键字...">
+		      	  <span class="input-group-btn">
+		          <button class="btn btn-default" onclick="javascript:{
+					this.disable=true;document.form1.submit();}">搜索</button>
+      	  		  </span>
+    		  </div><!-- /input-group -->
+          	</form>
+          	
           </div>
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-              <li><a href="#">February 2014</a></li>
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
+            {volist name='datecates' id='datecate'}
+              <li><a href="{:url('index/datecate')}?dateid={$datecate.id}">{$datecate.timecate}   ({$datecate.num})</a></li>
+            
+            {/volist}  
             </ol>
           </div>
           <div class="sidebar-module">

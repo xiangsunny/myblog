@@ -7,7 +7,9 @@
           <div class="blog-post">
           	<br/>
             <h2 class="blog-post-title"><a href="{:url('comment/commentlist')}?articleid={$article.id}" >{$article.title}</a></h2>
-            <p class="blog-post-meta">{$article.create_time} <a href="#">{$article.admin}</a></p>
+            <p class="blog-post-meta">{$article.create_time} <a href="#">{$article.admin}</a>
+            	阅读量:{$article.click}
+            </p>
             <p>{$article.content}</p>
           </div><!-- /.blog-post -->
           {/volist}

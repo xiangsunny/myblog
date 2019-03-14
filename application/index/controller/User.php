@@ -93,4 +93,33 @@ class User extends Controller
         session(null);      //清除session，退出当前账号
         return $this->success('退出成功','index\index');
     }
+    
+    //完善个人资料
+    public function profile()
+    {
+        if(request()->isPost())
+        {
+            $pic = request()->file('pic');
+            if ($pic)
+            {
+                $info = $pic->move(ROOT_PATH.'public'.DS.'uploads');
+                if($info)
+                {
+                    $user = MyUser::get(Session::get('id'));
+                    $user->update(['id'=>Session::get('id'),'address'=>input('address'),'pic'=>$info->getSavename()]);
+                    \think\Log::debug($info->getSaveName());
+                    return redirect(url('index/index'));
+                }
+                else 
+                    return '上传失败';
+            }
+            
+
+        }
+        
+        else 
+        {
+            return $this->fetch('modify');
+        }
+    }
 }
